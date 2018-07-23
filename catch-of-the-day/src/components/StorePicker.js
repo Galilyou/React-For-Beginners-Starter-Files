@@ -12,7 +12,7 @@ class StorePicker extends React.Component {
   // read about when functions are bound (or mounted) in the react lifecycle.
   // in short, 'this' will not be bound in each method, sometimes you will need
   // bind it yourself int he constructor, like below.
-
+  /* 
   constructor() {
     super();
     this.goToStore = this.goToStore.bind(this);
@@ -23,7 +23,15 @@ class StorePicker extends React.Component {
     event.preventDefault();
 
     console.log(this.storeNameInput.current.value);
-  }
+  } */
+
+  // or better, don't declare goToStore as method, but rather as a propery: like so
+  goToStore = event => {
+    // STOP FORM SUBMIT TO SERVER
+    event.preventDefault();
+
+    console.log(this.storeNameInput.current.value);
+  };
 
   render() {
     console.log(this);
