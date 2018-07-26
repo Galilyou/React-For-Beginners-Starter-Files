@@ -16,7 +16,10 @@ class App extends React.Component {
     const { params } = this.props.match;
     const localStorageRef = JSON.parse(localStorage.getItem(params.storeId));
 
-    this.setState({ order: localStorageRef });
+    if (localStorageRef) {
+      this.setState({ order: localStorageRef });
+    }
+
     this.dbRef = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: "fishes"
