@@ -19,6 +19,13 @@ class App extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    // clean up and stop listening to changes
+    // if you don't do this, memory leaks happen, think of it like unsubscribing
+    // to events in .NET
+    base.removeBinding(this.dbRef);
+  }
+
   addFish = fish => {
     // don't directly update state.fishes (state in react is supposed to be immutable, i think)
     // instead, use setState
