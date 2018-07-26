@@ -13,7 +13,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.ref = base.syncState(`${this.props.match.params.storeId}/fishes`, {
+    this.dbRef = base.syncState(`${this.props.match.params.storeId}/fishes`, {
       context: this,
       state: "fishes"
     });
